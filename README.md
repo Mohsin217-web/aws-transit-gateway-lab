@@ -1,41 +1,29 @@
 # AWS Transit Gateway Lab
 
-Hands-on AWS Cloud Networking project demonstrating how to connect multiple VPCs using an AWS Transit Gateway with a hub-and-spoke architecture.
+![AWS Transit Gateway Architecture](./architecture-diagram.png)
 
-## 📌 Project Overview
+## 📌 Overview
 
-This project demonstrates private network connectivity between three separate Amazon VPCs using AWS Transit Gateway.
+This project is a hands-on AWS Cloud Networking lab focused on **AWS Transit Gateway (TGW)** and the **hub-and-spoke network architecture**.
 
-The lab was designed and implemented from scratch to understand:
+The objective was to build three separate VPCs and establish private network connectivity between them using a centralized Transit Gateway.
 
-- AWS Transit Gateway
-- Hub-and-spoke networking
-- VPC attachments
-- Transit Gateway route tables
-- Route propagation
-- VPC route tables
-- Static routing
-- Security Groups
-- Private IP connectivity
-- Network troubleshooting
-- Connectivity validation
-- AWS resource cleanup and cost awareness
+The lab was implemented from scratch, tested using real EC2 instances, documented with architecture diagrams and screenshots, and completely cleaned up after testing to minimize AWS costs.
 
 ---
 
-## 🏗️ Architecture
+# 🏗️ Architecture
 
-The environment consists of three VPCs connected through a centralized Transit Gateway.
+The lab uses a hub-and-spoke architecture:
 
 ```text
-                    AWS Transit Gateway
-                         TGW-HUB
-                            |
-             +--------------+--------------+
-             |              |              |
-             |              |              |
-           VPC-A          VPC-B          VPC-C
-        10.0.0.0/16    20.0.0.0/16    30.0.0.0/16
-             |              |              |
-          EC2-A           EC2-B          EC2-C
-        10.0.1.65        20.0.1.8       30.0.1.168
+                         AWS TRANSIT GATEWAY
+                              TGW-HUB
+                           /     |     \
+                          /      |      \
+                         /       |       \
+                      VPC-A    VPC-B    VPC-C
+                    10.0.0/16 20.0.0/16 30.0.0/16
+                       |         |         |
+                     EC2-A     EC2-B     EC2-C
+                  10.0.1.65  20.0.1.8  30.0.1.168
